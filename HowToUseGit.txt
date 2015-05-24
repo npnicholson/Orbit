@@ -1,0 +1,10 @@
+git status == shows the status of your files relative to the files on gitHub
+
+Pulling changes from gitHib:
+	git pull
+
+Pushing changes to gitHib:
+	git add [* | some files]
+		If you add a file you dont want to push, use git rm someFile
+	git commit -m "Some text here to say what you did"
+	git push
