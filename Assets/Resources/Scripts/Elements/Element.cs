@@ -8,11 +8,13 @@ public class Element : MonoBehaviour, IRecycle {
 
 	private System.Type[] components = new System.Type[1];
 	private int numComps = 0;
+
 	public void Restart() {
 		
 	}
 
 	public void Startup() {
+		// gameObject.GetComponent<RecycleElement>().gatherComponents();
 		Restart();
 	}
 
@@ -34,6 +36,8 @@ public class Element : MonoBehaviour, IRecycle {
 				addComp(comp);
 			}
 		}
+		gameObject.GetComponent<RecycleElement>().gatherComponents();
+		gameObject.GetComponent<RecycleElement>().Startup();
 	}
 
 	private void addComp(System.Type comp) {

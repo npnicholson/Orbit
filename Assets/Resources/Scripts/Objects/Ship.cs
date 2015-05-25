@@ -15,7 +15,7 @@ public class Ship : MonoBehaviour, IRecycle {
 
 	void FixedUpdate() {
 		//transform.position = (transform.position + new Vector3 (1,0,0));
-		GetComponent<Rigidbody2D>().velocity = new Vector3 (100,0,0);
+
 		/*if (camera.GetComponent<CameraTarget> ().target.name.Equals (this.name) && camera.GetComponent<CameraTarget> ().fix) {
 			camera.GetComponent<CameraTarget> ().setTarget (earth);
 		}*/
@@ -25,14 +25,17 @@ public class Ship : MonoBehaviour, IRecycle {
 	}
 
 	public void Restart(){
-
+		print("Ship restart");
+		GetComponent<Rigidbody2D>().velocity = new Vector3 (100,0,0);
 	}
 
 	public void Shutdown() {
-		
+		print ("Ship Shutdown");
 	}
 
 	public void Startup() {
+		print ("Ship Startup");
+		Restart();
 	
 	}
 }

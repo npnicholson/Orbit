@@ -2,6 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 
+/**
+ * An element pool is created for each differing object type by the ElementUtil.
+ * For example, two objects that are created, an Earth and a ship, will have seperate
+ * ElementPools and will be nested differently under the World object 
+ * 
+ * @author Norris Nicholson
+ * @version 1.0
+ * 
+ * This code is partially based on the Lynda.com course, Unity 5 2D essentials
+ * 
+ */
 public class ElementPool : MonoBehaviour {
 	
 	public RecycleElement prefab;

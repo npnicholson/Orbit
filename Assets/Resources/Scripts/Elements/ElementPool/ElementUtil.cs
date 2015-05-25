@@ -2,6 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 
+/**
+ * Manages the elements in the game by using the Recycle Element class
+ * 
+ * @author Norris Nicholson
+ * @version 1.0
+ * 
+ * This code is partially based on the Lynda.com course, Unity 5 2D essentials
+ * 
+ */
 public class ElementUtil {
 
 	private static Dictionary<RecycleElement, ElementPool> pools = new Dictionary<RecycleElement, ElementPool> ();
@@ -104,35 +113,61 @@ public class ElementUtil {
 		return element; 
 	}
 
+	/**
+	 * Checkes if the element prefab exists. If it does not, it creates one with approperate components
+	 */
 	private static void createElement() {
+
+		// Search for the element prefab
 		element = (GameObject)Resources.Load("Prefabs/element");
+
+		// If it does not exist, make it
 		if (element == null) {
 			element = new GameObject();
 			element.name = "element";
+
+			// Nest it under the world gameobject
 			element.transform.parent = getWorld().transform;
 
+			// Add several components that all elements should have
 			var comps = new System.Type[] {typeof(Element), typeof(SpriteRenderer), typeof(RecycleElement)};
 			foreach (System.Type comp in comps)
 				element.AddComponent(comp);
 		}
 	}
 
+	/**
+	 * Checks if the World object exists. IF it does not, it creates one.
+	 */
 	private static void createWorld() {
+
+		// Search for the world object
 		world = GameObject.Find("World");
 
+		// If it doesnt exist, create it and name it "World"
 		if (world == null) {
 			world = new GameObject();
 			world.name = "World";
 		}
 	}
 
+	/**
+	 * Returns the World object
+	 * @return the World gameObject
+	 */
 	public static GameObject getWorld() {
+
+		// If the world object has not been created, do so
 		if (world == null) 
 			createWorld();
 
 		return world;
 	}
 
+	/**
+	 * Return the world's position (for offset calculations)
+	 * @return a Vector3 containing the position of World
+	 */
 	public static Vector3 getWorldPos() {
 		GameObject world = getWorld();
 		return world.transform.position;
