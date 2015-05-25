@@ -14,7 +14,6 @@ public class Element : MonoBehaviour, IRecycle {
 
 	public void Startup() {
 		Restart();
-
 	}
 
 	public void Shutdown() {
