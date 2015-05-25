@@ -8,7 +8,7 @@ Pushing changes to gitHib:
 	Make sure you are on the master branch! Run git status to find out. If you arent
 	then it will ask you to run git pull first and merge your branch with the master
 	branch. If you arent on the master branch, run git pull before making any changes
-	(unless you want to make another branch which you (keenan) probably dont)
+	(unless you want to make another branch which you (keenan) probably dont).
 
 	git add [* | some files]
 		If you add a file you dont want to push, use git rm someFile
